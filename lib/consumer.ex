@@ -393,7 +393,7 @@ defmodule GenRMQ.Consumer do
   defp linear_delay(attempt), do: :timer.sleep(attempt * 1_000)
 
   defp setup_ttl(arguments, nil), do: arguments
-  defp setup_ttl(arguments, ttl), do: [{"x-expires", :long, ttl} | arguments]
+  defp setup_ttl(arguments, ttl), do: [{"x-message-ttl", ttl} | arguments]
 
   ##############################################################################
   ##############################################################################
